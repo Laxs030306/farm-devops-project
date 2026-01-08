@@ -2,20 +2,95 @@
 <html>
 <head>
     <title>Farm Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 450px;
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        h2 {
+            text-align: center;
+            color: #2e7d32;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        #output {
+            margin-top: 20px;
+            background: #f1f8e9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Cloud-Based Farm Management System</h1>
-    <p>This is a simple farm management website deployed using DevOps.</p>
 
-    <h2>Farm Details</h2>
-    <ul>
-        <li>Crop: Rice</li>
-        <li>Water Schedule: Daily</li>
-        <li>Fertilizer: Organic</li>
-    </ul>
+<div class="container">
+    <h2>Farm Management System</h2>
 
-    <footer>
-        <p>Internship Project - DevOps</p>
-    </footer>
+    <form onsubmit="return displayData()">
+        <label>Farmer Name</label>
+        <input type="text" id="farmer" placeholder="Enter your name" required>
+
+        <label>Crop Type</label>
+        <select id="crop">
+            <option>Rice</option>
+            <option>Wheat</option>
+            <option>Maize</option>
+            <option>Vegetables</option>
+        </select>
+
+        <label>Water Schedule</label>
+        <input type="text" id="water" placeholder="Daily / Weekly">
+
+        <label>Fertilizer Type</label>
+        <input type="text" id="fertilizer" placeholder="Organic / Chemical">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="output"></div>
+</div>
+
+<script>
+function displayData() {
+    let farmer = document.getElementById("farmer").value;
+    let crop = document.getElementById("crop").value;
+    let water = document.getElementById("water").value;
+    let fertilizer = document.getElementById("fertilizer").value;
+
+    document.getElementById("output").innerHTML =
+        `<h3>Farm Details</h3>
+         <strong>Farmer:</strong> ${farmer}<br>
+         <strong>Crop:</strong> ${crop}<br>
+         <strong>Water Schedule:</strong> ${water}<br>
+         <strong>Fertilizer:</strong> ${fertilizer}`;
+
+    return false; // Prevent page reload
+}
+</script>
+
 </body>
 </html>
